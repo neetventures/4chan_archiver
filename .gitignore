@@ -9,3 +9,4 @@ upload/
 video/
 dashboard/
 sites.py
+archive/archive_configs.py
