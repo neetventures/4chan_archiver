@@ -88,5 +88,5 @@ def delete(board, postnum):
 
 @archive_site.route('/run', methods=['GET'])
 def manual_execute():
-    subprocess.run(['/usr/bin/python3', '/home/m/sites/archive/archive.py'])
+    subprocess.run(['/usr/bin/python3', os.path.join(os.path.abspath(os.path.dirname(__file__)), 'archive.py')])
     return redirect('home')
