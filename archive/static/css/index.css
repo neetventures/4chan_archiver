@@ -1,0 +1,96 @@
+body {
+    background: #1d1f21;
+    color: #c5c8c6;
+    font-family: arial,helvetica,sans-serif;
+    font-size: 12pt;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    max-width: 95%;
+    margin: auto;
+}
+
+button:hover {
+    cursor: pointer;
+    color: rgb(92, 100, 114);
+}
+
+button {
+    margin-top: 5px;
+    font: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    color: rgb(125, 139, 167);
+    padding: 5px;
+    border: 1px solid rgb(125, 139, 167);
+}
+
+.pad_sides{
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 4px;
+    margin-top: -5px;
+}
+
+.left {
+    float: left;
+}
+
+.posts {
+    display: inline-block;
+    text-align: center;
+}
+
+.post {
+    vertical-align: top;
+    display: inline-block;
+    word-wrap: break-word;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding: 5px 0 3px;
+    position: relative;
+    border: solid 1px rgb(92, 100, 114);
+    max-width: 400px;
+}
+
+.video_post {
+    vertical-align: top;
+    display: inline-block;
+    word-wrap: break-word;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.post img,.post video {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.thumbnail {
+    display: inline-block;
+}
+
+.thumbnail img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+a {
+    color: inherit;
+}
+
+a:hover {
+    color: #5c6472;
+}
+
+.center {
+    text-align: center;
+}
+
+.window{
+    overflow-y: scroll;
+    overflow-x: scroll;
+}

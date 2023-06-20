@@ -1,0 +1,11 @@
+*.flaskenv
+__pycache__/
+*.log
+archive/archive/
+__init__.py
+misc/
+uploaded_files/
+upload/
+video/
+dashboard/
+sites.py

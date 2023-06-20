@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<p>
+  <p>Configs</p>
+  <form action="{{url_for('archive_site.archive_configs')}}" method="POST">
+    <textarea name="content" rows="25" cols="80">{{config_text}}</textarea>
+    <br>
+    <button type="submit">Save</button>
+  </form>
+</p>
+<p>
+  <button id="manual_execute">Manual Execute</button>
+    <script>
+      var button = document.getElementById('manual_execute');
+        button.addEventListener('click', 
+          function sendRequest() {
+            var url = '/archive_site/run';
+            fetch(url)
+              .then(function(response) {
+                if (response.ok) {
+                  alert("All done!");
+                } else {
+                  alert("Error: " + response);
+                }
+              })
+              .catch(function(error) {
+                alert("Error: " + error.message);
+              });
+      });
+    </script>
+</p>
+<p>
+  <p>Logs</p>
+  <textarea class="window" rows="10" cols="80">{{log_text|safe}}</textarea>
+</p>
+<p>
+  <button onclick="toggle(event, 'com')">Comments</button>
+</p>
+
+{% for board in b_ops.keys() %}
+  <h2>/{{board}}/</h2>
+  <hr>
+  <div class="posts">
+    {% for op in b_ops[board] %}
+    <div class="post">
+      <a class="pad_sides left" href="{{ url_for('archive_site.delete', board=op['board'], postnum=op['no']) }}">x</a>
+      <a href="{{ url_for('archive_site.thread', board=op['board'], postnum=op['no']) }}">
+        {{op.get('no') | safe}}
+        <br>
+        <img src="{{ url_for('archive_site.send_media', filename=op['thumbnail_file']) }}">
+        <br>
+        {{html.unescape(op.get('sub', '')) | safe}}
+        <div class="com" hidden>{{html.unescape(op.get('com', '')) | safe}}</div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+{% endfor %}
+
+{% endblock %}

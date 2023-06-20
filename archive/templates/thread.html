@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<a href="{{url_for('archive_site.home')}}">Back</a>
+<br>
+<br>
+Subject: {{ posts[0]['sub'] }}
+<br>
+Comment: {{posts[0]['com'] | safe}}
+<br>
+<br>
+<button onclick="toggle(event, 'com')">Comments</button>
+<br>
+<br>
+<div class="posts">
+  {% for post in posts %}
+    {% if post['ext'] %}
+      <div class="post">
+        <img
+          src="{{ url_for('archive_site.send_media', filename=post['thumbnail_file']) }}"
+          data-media="{{ url_for('archive_site.send_media', filename=post['media_file']) }}"
+          data-media_ext="{{ post['ext'] }}"
+          onclick="get_media(event)"
+        >
+        <br>
+        <div class="com" hidden> {{ post['com'] | safe}}</div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% endblock %}
